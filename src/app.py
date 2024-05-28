@@ -1,5 +1,5 @@
 import psutil
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
@@ -8,16 +8,16 @@ app = Flask(__name__)
 def index():
     cpu_percent = psutil.cpu_percent()
     mem_percent = psutil.virtual_memory().percent
-    Message = None
+    message = None
 
     if cpu_percent > 80:
-        Message = "CPU usage is high"
+        message = "CPU usage is high"
     elif mem_percent > 80:
-        Message = "Memory usage is high"
+        message = "Memory usage is high"
     else:
-        Message = "Everything is fine"
+        message = "Everything is fine"
 
-    return f"CPU: {cpu_percent}%\nMemory: {mem_percent}%\n{Message}"
+    return render_template("index.html", cpu_metric=cpu_percent, mem_metric=mem_percent, message=message)
 
 
 if __name__ == "__main__":
