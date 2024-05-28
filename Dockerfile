@@ -10,7 +10,11 @@ WORKDIR /src
 COPY requirements.txt /src/
 
 # Install any dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN apt-get update && apt-get install -y \
+    gcc \
+    python3-dev
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir -r requirements.txt -v
 
 # Copy the content of the local src directory to the working directory
 COPY . .
