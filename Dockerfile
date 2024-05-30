@@ -17,10 +17,14 @@ RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt -v
 
 # Copy the content of the local src directory to the working directory
-COPY . .
+COPY ./src /src
 
-# Envirnoment variables
+# Environment variables
+ENV FLASK_APP=app
 ENV FLASK_RUN_HOST=0.0.0.0
+
+# Expose the port the app runs on
 EXPOSE 8000
+
 CMD ["flask", "run"]
 
