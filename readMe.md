@@ -3,6 +3,10 @@
 ## Steps
 - Create an app.py file, which will be a simple flask application
 - Create a Dockerfile and add the necessary commands to build the docker image
+- Create a requirements.txt file and add the necessary packages
+- Build the docker image
+- Run the docker image
+- Create an ECR repository
 
 ## Requirements
 - AWS Account
