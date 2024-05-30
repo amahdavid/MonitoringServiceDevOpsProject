@@ -22,6 +22,7 @@ COPY ./src /src
 # Environment variables
 ENV FLASK_APP=app
 ENV FLASK_RUN_HOST=0.0.0.0
+ENV FLASK_RUN_PORT=8000
 
 # Expose the port the app runs on
 EXPOSE 8000
